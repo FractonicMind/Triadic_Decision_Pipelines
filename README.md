@@ -8,9 +8,9 @@ This repository contains three core research reports; they are available in Mark
 
 This foundational report traces the philosophical and mathematical entrenchment of bivalence and diagnoses the core friction between machine learning and deterministic symbolic verification.
 
-* **Text:** [Architecting the Coordination Layer.md](Architecting%2520the%2520Coordination%2520Layer.md)
-* **Web:** [View HTML](https://fractonicmind.github.io/Triadic_Decision_Pipelines/Architecting%2520the%2520Coordination%2520Layer.html)
-* **Audio:** [Listen to MP3](https://fractonicmind.github.io/Triadic_Decision_Pipelines/Architecting%2520the%2520Coordination%2520Layer.mp3)
+* **Text:** [Architecting the Coordination Layer.md](Architecting_the_Coordination_Layer.md)
+* **Web:** [View HTML](https://fractonicmind.github.io/Triadic_Decision_Pipelines/Architecting_the_Coordination_Layer.html)
+* **Audio:** [Listen to MP3](https://fractonicmind.github.io/Triadic_Decision_Pipelines/Architecting_the_Coordination_Layer.mp3)
 
 ### 2. AI Reasoning Triadic Logic Integration
 
