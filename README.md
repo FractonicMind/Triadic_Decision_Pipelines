@@ -16,9 +16,9 @@ This foundational report traces the philosophical and mathematical entrenchment 
 
 This document shifts the focus to neurosymbolic engineering and hardware substrates. It explores specific verification gates and hardware accelerators capable of processing ternary states.
 
-* **Text:** [AI Reasoning Triadic Logic Integration.md](AI%2520Reasoning%2520Triadic%2520Logic%2520Integration.md)
-* **Web:** [View HTML](https://fractonicmind.github.io/Triadic_Decision_Pipelines/AI%2520Reasoning%2520Triadic%2520Logic%2520Integration.html)
-* **Audio:** [Listen to MP3](https://fractonicmind.github.io/Triadic_Decision_Pipelines/AI%2520Reasoning%2520Triadic%2520Logic%2520Integration.mp3)
+* **Text:** [AI Reasoning Triadic Logic Integration.md](AI Reasoning Triadic Logic Integration.md)
+* **Web:** [View HTML](https://fractonicmind.github.io/Triadic_Decision_Pipelines/AI Reasoning Triadic Logic Integration.html)
+* **Audio:** [Listen to MP3](https://fractonicmind.github.io/Triadic_Decision_Pipelines/AI Reasoning Triadic Logic Integration.mp3)
 
 ### 3. Case for Triadic Logic in Mediating AI Reasoning and Verification
 
