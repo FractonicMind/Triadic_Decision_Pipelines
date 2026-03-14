@@ -2,7 +2,7 @@
 
 Architectural research on triadic coordination layers for artificial intelligence. This repository explores integrating a discrete third state (verification pending) between probabilistic neural generation and deterministic binary execution to resolve uncertainty in precision critical AI decision pipelines.
 
-![Probabilistic reasoning pipeline AI](pipeline.jpg)
+![Probabilistic reasoning pipeline AI](pipeline.png)
 
 This repository contains three core research reports; they are available in Markdown, HTML, and audio formats.
 
@@ -18,7 +18,7 @@ This foundational report traces the philosophical and mathematical entrenchment 
 
 This document shifts the focus to neurosymbolic engineering and hardware substrates. It explores specific verification gates and hardware accelerators capable of processing ternary states.
 
-![Jan Łukasiewicz and Triadic Logic](Jan_L.jpg)
+![Jan Łukasiewicz and Triadic Logic](Jan_L.png)
 
 * **Text:** [AI Reasoning Triadic Logic Integration.md](AI_Reasoning_Triadic_Logic_Integration.md)
 * **Web:** [View HTML](https://fractonicmind.github.io/Triadic_Decision_Pipelines/AI_Reasoning_Triadic_Logic_Integration.html)
