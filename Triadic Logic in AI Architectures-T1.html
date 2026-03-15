@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triadic Logic in AI Architecture - Interactive Report</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fdfbf7; /* Warm neutral background */
+            color: #3f3f46; /* Zinc 700 */
+        }
+        
+        /* Strict Chart Container Styling */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 45vh;
+            max-height: 450px;
+            min-height: 300px;
+        }
+
+        @media (max-width: 768px) {
+            .chart-container {
+                height: 40vh;
+                max-height: 350px;
+            }
+        }
+
+        /* Custom scrollbar for aesthetic harmony */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #fdfbf7; }
+        ::-webkit-scrollbar-thumb { background: #d4d4d8; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #a1a1aa; }
+
+        .timeline-btn.active {
+            background-color: #0f766e; /* Teal 700 */
+            color: white;
+            border-color: #0f766e;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-teal-100 selection:text-teal-900">
+
+    <!-- Chosen Palette: Warm Neutrals with Teal, Amber, and Rose Accents -->
+    <!-- Application Structure Plan: The SPA is structured as a linear but interactive narrative. It starts with an executive summary, introduces the core three states via interactive cards, explores the historical context via a clickable timeline, visualizes the architectural pipeline using a step-by-step HTML diagram, compares the model to existing solutions using an interactive radar chart, and concludes with system dynamics via a bubble chart. This allows users to consume the theoretical framework at their own pace, drilling down into specifics without being overwhelmed by text. -->
+    <!-- Visualization & Content Choices: 
+         1. Core States -> Goal: Inform -> Method: Interactive HTML Cards -> Justification: Breaks down the 3 states clearly; NO SVG. 
+         2. History -> Goal: Organize/Timeline -> Method: HTML Button array updating a text area -> Justification: Allows user-driven exploration of chronological data; NO SVG.
+         3. Pipeline -> Goal: Organize/Flow -> Method: HTML Flexbox with Unicode arrows -> Justification: Visualizes process flow without Mermaid or SVG.
+         4. Comparison -> Goal: Compare -> Method: Chart.js Radar Chart -> Justification: Best for multivariable capability comparison; Canvas based.
+         5. Dynamics -> Goal: Relationships -> Method: Chart.js Bubble Chart -> Justification: Shows 3 dimensions (Complexity, Certainty, Impact) effectively; Canvas based. 
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <nav class="sticky top-0 z-50 bg-[#fdfbf7]/90 backdrop-blur-md border-b border-stone-200 shadow-sm">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center overflow-x-auto">
+            <div class="font-bold text-lg text-teal-800 tracking-tight whitespace-nowrap mr-8">Triadic AI Architecture</div>
+            <div class="flex space-x-6 text-sm font-medium text-stone-600">
+                <a href="#core-states" class="hover:text-teal-700 transition-colors whitespace-nowrap">Core States</a>
+                <a href="#history" class="hover:text-teal-700 transition-colors whitespace-nowrap">Evolution</a>
+                <a href="#pipeline" class="hover:text-teal-700 transition-colors whitespace-nowrap">Pipeline</a>
+                <a href="#comparison" class="hover:text-teal-700 transition-colors whitespace-nowrap">Analysis</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="max-w-4xl mx-auto px-6 py-20 text-center">
+        <div class="inline-block px-3 py-1 mb-6 rounded-full bg-teal-50 border border-teal-100 text-teal-800 text-xs font-semibold tracking-wider uppercase">Research Report Analysis</div>
+        <h1 class="text-4xl md:text-6xl font-extrabold text-stone-800 leading-tight mb-6">Coordinating Uncertainty in AI</h1>
+        <p class="text-xl text-stone-500 leading-relaxed max-w-2xl mx-auto">Exploring Lev Goukassian's proposal for utilizing Ternary Logic (TL) and Ternary Moral Logic (TML) as a coordination layer between probabilistic reasoning and deterministic verification.</p>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 pb-24 space-y-24">
+
+        <section id="core-states" class="scroll-mt-24">
+            <div class="max-w-3xl mx-auto text-center mb-10">
+                <h2 class="text-3xl font-bold text-stone-800 mb-4">The Triadic Coordination Layer</h2>
+                <p class="text-stone-600">Current AI systems struggle when mapping uncertain probabilistic outputs to rigid binary execution paths. This section breaks down the three distinct states of the proposed triadic logical structure. Click each state below to understand how it handles AI decision-making boundaries.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <button onclick="updateStateDetail('accepted')" class="group text-left p-6 bg-white rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition-all hover:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500">
+                    <div class="w-12 h-12 rounded-full bg-teal-50 text-teal-700 flex items-center justify-center text-2xl font-bold mb-4 group-hover:bg-teal-600 group-hover:text-white transition-colors">&#10003;</div>
+                    <h3 class="text-xl font-bold text-stone-800 mb-2">State 1: Accepted</h3>
+                    <p class="text-sm text-stone-500">Probabilistic cognition meets safety thresholds.</p>
+                </button>
+
+                <button onclick="updateStateDetail('rejected')" class="group text-left p-6 bg-white rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition-all hover:border-rose-500 focus:outline-none focus:ring-2 focus:ring-rose-500">
+                    <div class="w-12 h-12 rounded-full bg-rose-50 text-rose-700 flex items-center justify-center text-2xl font-bold mb-4 group-hover:bg-rose-600 group-hover:text-white transition-colors">&#10005;</div>
+                    <h3 class="text-xl font-bold text-stone-800 mb-2">State 2: Rejected</h3>
+                    <p class="text-sm text-stone-500">Violation of parameters or low confidence.</p>
+                </button>
+
+                <button onclick="updateStateDetail('pending')" class="group text-left p-6 bg-white rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition-all hover:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500 ring-2 ring-amber-200">
+                    <div class="w-12 h-12 rounded-full bg-amber-50 text-amber-700 flex items-center justify-center text-2xl font-bold mb-4 group-hover:bg-amber-500 group-hover:text-white transition-colors">&#8987;</div>
+                    <h3 class="text-xl font-bold text-stone-800 mb-2">State 3: Pending</h3>
+                    <p class="text-sm text-stone-500">Uncertainty requires deferred evaluation.</p>
+                </button>
+            </div>
+
+            <div id="state-detail-card" class="mt-8 p-8 bg-white rounded-2xl border border-amber-200 shadow-sm fade-in">
+                <div class="flex items-start">
+                    <div class="text-4xl mr-4 mt-1 text-amber-500">&#8987;</div>
+                    <div>
+                        <h4 class="text-2xl font-bold text-stone-800 mb-3">Verification Pending</h4>
+                        <p class="text-stone-600 leading-relaxed mb-4">The core innovation of the triadic model. Instead of forcing a binary "guess" or failing completely, the system formally recognizes uncertainty. This state explicitly triggers secondary verification pipelines, human-in-the-loop escalation, or extended computational reasoning without breaking the primary execution flow.</p>
+                        <div class="inline-block px-3 py-1 bg-amber-50 text-amber-800 text-xs font-bold rounded">Key Action: Defers & Escalates</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="w-full h-px bg-stone-200"></div>
+
+        <section id="history" class="scroll-mt-24">
+            <div class="max-w-3xl mx-auto text-center mb-10">
+                <h2 class="text-3xl font-bold text-stone-800 mb-4">Historical Evolution of the Third State</h2>
+                <p class="text-stone-600">Three-valued logic has a rich theoretical foundation. This timeline demonstrates how classical philosophical concepts have evolved into the modern architectural proposals by Lev Goukassian. Select an era below to explore the chronological development.</p>
+            </div>
+
+            <div class="bg-white rounded-2xl p-8 border border-stone-200 shadow-sm">
+                <div class="flex flex-wrap justify-center gap-3 mb-10 border-b border-stone-100 pb-8">
+                    <button onclick="updateTimeline('peirce', this)" class="timeline-btn px-6 py-2 rounded-full border border-stone-300 text-sm font-medium hover:border-teal-500 transition-colors focus:outline-none">1910s: Peirce</button>
+                    <button onclick="updateTimeline('lukasiewicz', this)" class="timeline-btn px-6 py-2 rounded-full border border-stone-300 text-sm font-medium hover:border-teal-500 transition-colors focus:outline-none">1920s: Łukasiewicz</button>
+                    <button onclick="updateTimeline('kleene', this)" class="timeline-btn px-6 py-2 rounded-full border border-stone-300 text-sm font-medium hover:border-teal-500 transition-colors focus:outline-none">1930s: Kleene</button>
+                    <button onclick="updateTimeline('goukassian', this)" class="timeline-btn active px-6 py-2 rounded-full border border-stone-300 text-sm font-medium hover:border-teal-500 transition-colors focus:outline-none">Present: Goukassian</button>
+                </div>
+
+                <div id="timeline-content" class="fade-in max-w-2xl mx-auto text-center">
+                    <span class="text-sm font-bold text-teal-600 tracking-widest uppercase mb-2 block">Present Architectural Proposal</span>
+                    <h3 class="text-2xl font-bold text-stone-800 mb-4">Ternary Logic (TL) & Ternary Moral Logic (TML)</h3>
+                    <p class="text-stone-600 leading-relaxed">Proposed by Lev Goukassian, these frameworks move triadic logic from abstract philosophy to practical AI architecture. They introduce an operationalized third state specifically designed as a coordination layer for machine learning safety, managing the handoff between probabilistic neural networks and deterministic software verification.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="w-full h-px bg-stone-200"></div>
+
+        <section id="pipeline" class="scroll-mt-24">
+            <div class="max-w-3xl mx-auto text-center mb-10">
+                <h2 class="text-3xl font-bold text-stone-800 mb-4">Architectural Pipeline Visualization</h2>
+                <p class="text-stone-600">How is the triadic gate integrated? This interactive flow chart illustrates the conceptual placement of the Triadic Decision Layer. It acts as the critical bridge, preventing probabilistic hallucinations from directly executing high-risk actions. Click the steps to trace the data flow.</p>
+            </div>
+
+            <div class="bg-stone-800 rounded-2xl p-8 shadow-lg text-stone-200 overflow-x-auto">
+                <div class="min-w-[800px] flex items-center justify-between">
+                    
+                    <div id="step-1" class="cursor-pointer w-64 bg-stone-700 p-5 rounded-xl border border-teal-500 shadow-[0_0_15px_rgba(20,184,166,0.2)] transition-all hover:bg-stone-600" onclick="highlightPipeline(1)">
+                        <div class="text-xs text-teal-400 font-bold tracking-wider mb-2 uppercase">Layer 1</div>
+                        <h4 class="text-lg font-bold text-white mb-2">Probabilistic Cognition</h4>
+                        <p class="text-sm text-stone-400">LLMs, Bayesian Inference, Neural Nets generate outputs with varying confidence.</p>
+                    </div>
+
+                    <div class="text-3xl text-stone-500 px-4 font-bold">&#10142;</div>
+
+                    <div id="step-2" class="cursor-pointer w-72 bg-stone-700 p-5 rounded-xl border border-stone-600 transition-all hover:bg-stone-600" onclick="highlightPipeline(2)">
+                        <div class="text-xs text-amber-400 font-bold tracking-wider mb-2 uppercase">Coordination Layer</div>
+                        <h4 class="text-lg font-bold text-white mb-3">Triadic Decision Gate</h4>
+                        <div class="flex space-x-2 text-xs font-bold justify-center">
+                            <span class="px-2 py-1 bg-teal-900/50 text-teal-300 rounded border border-teal-800">ACC</span>
+                            <span class="px-2 py-1 bg-amber-900/50 text-amber-300 rounded border border-amber-800">PENDING</span>
+                            <span class="px-2 py-1 bg-rose-900/50 text-rose-300 rounded border border-rose-800">REJ</span>
+                        </div>
+                    </div>
+
+                    <div class="text-3xl text-stone-500 px-4 font-bold">&#10142;</div>
+
+                    <div id="step-3" class="cursor-pointer w-64 flex flex-col space-y-4 transition-all" onclick="highlightPipeline(3)">
+                        <div class="bg-stone-700 p-4 rounded-xl border border-stone-600 text-center hover:bg-stone-600">
+                            <h4 class="font-bold text-teal-400 text-sm">Execution Engine</h4>
+                            <p class="text-xs text-stone-400 mt-1">State 1 paths execute.</p>
+                        </div>
+                        <div class="bg-stone-700 p-4 rounded-xl border border-stone-600 text-center hover:bg-stone-600">
+                            <h4 class="font-bold text-amber-400 text-sm">Deterministic Verification</h4>
+                            <p class="text-xs text-stone-400 mt-1">State 3 paths loop for checking.</p>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <div id="pipeline-desc" class="mt-8 text-center text-stone-400 text-sm bg-stone-900/50 p-4 rounded-lg">
+                    Click on "Layer 1: Probabilistic Cognition" to begin the flow simulation.
+                </div>
+            </div>
+        </section>
+
+        <div class="w-full h-px bg-stone-200"></div>
+
+        <section id="comparison" class="scroll-mt-24">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5">
+                    <h2 class="text-3xl font-bold text-stone-800 mb-4">Mechanism Comparison</h2>
+                    <p class="text-stone-600 mb-6">How does Triadic Logic compare to existing uncertainty mechanisms like Confidence Scores or Abstention Models? This radar chart evaluates them across key architectural requirements.</p>
+                    <p class="text-sm text-stone-500 bg-white p-4 rounded-lg border border-stone-200 shadow-sm mb-6">
+                        While probabilistic systems capture uncertainty effectively, they often lack <strong class="text-stone-700">Execution Continuity</strong>. Triadic structures excel at keeping the pipeline moving by formally routing uncertainty to verification logic, rather than simply halting (Abstention) or forcing an arbitrary threshold (Confidence Scores).
+                    </p>
+                    <div class="flex flex-col space-y-3">
+                        <button onclick="toggleRadarDataset(0)" class="text-left px-4 py-3 rounded-lg border-l-4 border-teal-600 bg-white shadow-sm font-semibold text-stone-700 hover:bg-stone-50">Toggle Triadic Logic</button>
+                        <button onclick="toggleRadarDataset(1)" class="text-left px-4 py-3 rounded-lg border-l-4 border-amber-500 bg-white shadow-sm font-semibold text-stone-700 hover:bg-stone-50">Toggle Confidence Scoring</button>
+                        <button onclick="toggleRadarDataset(2)" class="text-left px-4 py-3 rounded-lg border-l-4 border-stone-400 bg-white shadow-sm font-semibold text-stone-700 hover:bg-stone-50">Toggle Abstention Models</button>
+                    </div>
+                </div>
+                <div class="lg:col-span-7">
+                    <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
+                        <div class="chart-container">
+                            <canvas id="radarChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="w-full h-px bg-stone-200"></div>
+
+        <section id="dynamics" class="scroll-mt-24">
+            <div class="max-w-3xl mx-auto text-center mb-10">
+                <h2 class="text-3xl font-bold text-stone-800 mb-4">System Dynamics & Verification Cost</h2>
+                <p class="text-stone-600">Implementing the third state is not free. It introduces computational overhead. This visualization maps different AI tasks based on their initial probabilistic certainty versus the complexity/cost of deterministic secondary verification. The size of the bubble represents the frequency of the task.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
+                <div class="chart-container" style="height: 50vh; max-height: 500px;">
+                    <canvas id="bubbleChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-stone-900 py-10 text-center border-t-4 border-teal-700">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-stone-300 font-bold text-lg mb-2">Triadic Architectural Analysis</h2>
+            <p class="text-stone-500 text-sm mb-6">Interactive exploration based on Deep Research Report findings.</p>
+            <p class="text-stone-600 text-xs tracking-widest uppercase">Information Architecture Demonstration</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- Utility: Label Wrapping for Chart.js ---
+        function wrapLabel(label) {
+            if (label.length <= 16) return label;
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            for (let word of words) {
+                if ((currentLine + word).length > 16) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            }
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        // --- Utility: Tooltip Callback Configuration ---
+        const tooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        // --- State Management for Interactive HTML Blocks ---
+        
+        // 1. Core States Logic
+        const stateContent = {
+            accepted: {
+                icon: '&#10003;', color: 'teal', title: 'State 1: Accepted', tag: 'Proceeds Normally',
+                desc: 'Represents high-confidence probabilistic cognition that successfully matches predetermined deterministic safety thresholds. In this state, the architecture allows the pipeline to proceed directly to execution without friction.'
+            },
+            rejected: {
+                icon: '&#10005;', color: 'rose', title: 'State 2: Rejected', tag: 'Execution Terminated',
+                desc: 'Triggered when there is a clear violation of verification parameters or critically low probabilistic confidence. The Triadic Gate blocks execution entirely, prioritizing safety over completion.'
+            },
+            pending: {
+                icon: '&#8987;', color: 'amber', title: 'State 3: Verification Pending', tag: 'Defers & Escalates',
+                desc: 'The core innovation of the triadic model. Instead of forcing a binary "guess" or failing completely, the system formally recognizes uncertainty. This explicitly triggers secondary verification pipelines or human-in-the-loop escalation.'
+            }
+        };
+
+        function updateStateDetail(stateKey) {
+            const data = stateContent[stateKey];
+            const card = document.getElementById('state-detail-card');
+            
+            // Remove previous color classes
+            card.classList.remove('border-teal-200', 'border-rose-200', 'border-amber-200');
+            card.classList.add(`border-${data.color}-200`);
+
+            card.innerHTML = `
+                <div class="flex items-start">
+                    <div class="text-4xl mr-4 mt-1 text-${data.color}-500">${data.icon}</div>
+                    <div>
+                        <h4 class="text-2xl font-bold text-stone-800 mb-3">${data.title}</h4>
+                        <p class="text-stone-600 leading-relaxed mb-4">${data.desc}</p>
+                        <div class="inline-block px-3 py-1 bg-${data.color}-50 text-${data.color}-800 text-xs font-bold rounded">Key Action: ${data.tag}</div>
+                    </div>
+                </div>
+            `;
+            
+            // Re-trigger animation
+            card.classList.remove('fade-in');
+            void card.offsetWidth; // trigger reflow
+            card.classList.add('fade-in');
+        }
+
+        // 2. Timeline Logic
+        const timelineData = {
+            peirce: { era: "1910s: Early Philosophy", title: "Charles Sanders Peirce", desc: "Provided early conceptualizations of multi-valued logic and the limit conditions of truth, establishing that propositions do not necessarily have to be strictly binary." },
+            lukasiewicz: { era: "1920s: Formalization", title: "Jan Łukasiewicz", desc: "Mathematically formalized three-valued logic. He introduced a specific third truth value representing 'Possible' or fractional truth, standing alongside definitive True and False." },
+            kleene: { era: "1930s: Computational Logic", title: "Stephen Kleene", desc: "Introduced the 'Unknown' or 'Undefined' state, which became critical for computer science, particularly in managing partial recursive functions and computational logic where data is missing." },
+            goukassian: { era: "Present Architectural Proposal", title: "Ternary Logic (TL) & Ternary Moral Logic (TML)", desc: "Proposed by Lev Goukassian, these frameworks move triadic logic from abstract philosophy to practical AI architecture. They introduce an operationalized third state designed as a coordination layer for machine learning safety." }
+        };
+
+        function updateTimeline(key, btnElement) {
+            // Update buttons
+            document.querySelectorAll('.timeline-btn').forEach(btn => btn.classList.remove('active'));
+            btnElement.classList.add('active');
+
+            // Update content
+            const data = timelineData[key];
+            const content = document.getElementById('timeline-content');
+            
+            content.innerHTML = `
+                <span class="text-sm font-bold text-teal-600 tracking-widest uppercase mb-2 block">${data.era}</span>
+                <h3 class="text-2xl font-bold text-stone-800 mb-4">${data.title}</h3>
+                <p class="text-stone-600 leading-relaxed">${data.desc}</p>
+            `;
+
+            content.classList.remove('fade-in');
+            void content.offsetWidth;
+            content.classList.add('fade-in');
+        }
+
+        // 3. Pipeline Interaction Logic
+        function highlightPipeline(step) {
+            const steps = [
+                document.getElementById('step-1'),
+                document.getElementById('step-2'),
+                document.getElementById('step-3')
+            ];
+            const desc = document.getElementById('pipeline-desc');
+
+            // Reset styles
+            steps.forEach(el => {
+                el.classList.remove('border-teal-500', 'shadow-[0_0_15px_rgba(20,184,166,0.2)]');
+                el.classList.add('border-stone-600');
+            });
+
+            // Apply highlight
+            steps[step-1].classList.remove('border-stone-600');
+            steps[step-1].classList.add('border-teal-500', 'shadow-[0_0_15px_rgba(20,184,166,0.2)]');
+
+            // Update descriptions
+            if(step === 1) desc.innerHTML = "<strong>Layer 1 generates an output.</strong> Because it relies on probability, it passes an associated confidence metric along with the payload forward.";
+            if(step === 2) desc.innerHTML = "<strong>The payload hits the Triadic Gate.</strong> Here, deterministic rules assess the payload and the confidence. It explicitly categorizes the request into one of three structural states.";
+            if(step === 3) desc.innerHTML = "<strong>Routing Execution.</strong> State 1 goes to execution. State 2 terminates. State 3 is safely deferred and pushed to a secondary, rigorous verification loop without crashing the main thread.";
+        }
+
+        // --- Chart.js Implementations ---
+
+        // 4. Radar Chart (Comparison)
+        const radarLabelsRaw = ['Deterministic Verification', 'Uncertainty Representation', 'Execution Continuity', 'Computational Efficiency', 'Safety Scalability'];
+        const radarLabels = radarLabelsRaw.map(wrapLabel);
+
+        const radarCtx = document.getElementById('radarChart').getContext('2d');
+        const radarChart = new Chart(radarCtx, {
+            type: 'radar',
+            data: {
+                labels: radarLabels,
+                datasets: [
+                    {
+                        label: 'Triadic Logic',
+                        data: [90, 95, 85, 60, 90],
+                        backgroundColor: 'rgba(15, 118, 110, 0.2)', // Teal 700
+                        borderColor: 'rgba(15, 118, 110, 1)',
+                        pointBackgroundColor: 'rgba(15, 118, 110, 1)',
+                        pointBorderColor: '#fff',
+                    },
+                    {
+                        label: 'Confidence Scoring',
+                        data: [60, 50, 95, 90, 60],
+                        backgroundColor: 'rgba(245, 158, 11, 0.2)', // Amber 500
+                        borderColor: 'rgba(245, 158, 11, 1)',
+                        pointBackgroundColor: 'rgba(245, 158, 11, 1)',
+                        pointBorderColor: '#fff',
+                    },
+                    {
+                        label: 'Abstention Models',
+                        data: [85, 70, 30, 80, 80],
+                        backgroundColor: 'rgba(168, 162, 158, 0.2)', // Stone 400
+                        borderColor: 'rgba(168, 162, 158, 1)',
+                        pointBackgroundColor: 'rgba(168, 162, 158, 1)',
+                        pointBorderColor: '#fff',
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { color: 'rgba(0, 0, 0, 0.05)' },
+                        grid: { color: 'rgba(0, 0, 0, 0.05)' },
+                        pointLabels: { font: { family: 'Inter', size: 12 }, color: '#52525b' }, // Zinc 600
+                        ticks: { display: false, min: 0, max: 100 }
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: tooltipConfig
+                }
+            }
+        });
+
+        // Function to toggle radar datasets
+        function toggleRadarDataset(index) {
+            const meta = radarChart.getDatasetMeta(index);
+            meta.hidden = meta.hidden === null ? !radarChart.data.datasets[index].hidden : null;
+            radarChart.update();
+        }
+
+        // 5. Bubble Chart (System Dynamics)
+        const bubbleCtx = document.getElementById('bubbleChart').getContext('2d');
+        const bubbleChart = new Chart(bubbleCtx, {
+            type: 'bubble',
+            data: {
+                datasets: [
+                    {
+                        label: 'Simple Query Routing',
+                        data: [{ x: 15, y: 95, r: 15 }],
+                        backgroundColor: 'rgba(15, 118, 110, 0.7)', // Teal
+                        borderColor: '#0f766e'
+                    },
+                    {
+                        label: 'Financial Auditing (LLM)',
+                        data: [{ x: 85, y: 65, r: 25 }],
+                        backgroundColor: 'rgba(245, 158, 11, 0.7)', // Amber
+                        borderColor: '#f59e0b'
+                    },
+                    {
+                        label: 'Autonomous Navigation Edge Case',
+                        data: [{ x: 95, y: 40, r: 10 }],
+                        backgroundColor: 'rgba(225, 29, 72, 0.7)', // Rose
+                        borderColor: '#e11d48'
+                    },
+                    {
+                        label: 'Content Moderation',
+                        data: [{ x: 40, y: 80, r: 35 }],
+                        backgroundColor: 'rgba(120, 113, 108, 0.7)', // Stone
+                        borderColor: '#78716c'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        title: { display: true, text: 'Deterministic Verification Cost / Complexity', font: {family: 'Inter', weight: 'bold'} },
+                        min: 0, max: 100,
+                        grid: { color: 'rgba(0,0,0,0.03)'}
+                    },
+                    y: {
+                        title: { display: true, text: 'Initial Probabilistic Certainty', font: {family: 'Inter', weight: 'bold'} },
+                        min: 0, max: 100,
+                        grid: { color: 'rgba(0,0,0,0.03)'}
+                    }
+                },
+                plugins: {
+                    legend: { position: 'bottom', labels: { font: { family: 'Inter' } } },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `${context.dataset.label}: Cost ${context.raw.x}, Certainty ${context.raw.y}%`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
