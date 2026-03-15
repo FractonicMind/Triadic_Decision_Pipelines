@@ -9,7 +9,7 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
             color: #333;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 2rem;
             background-color: #f9f9f9;
@@ -20,16 +20,22 @@
         h1 {
             border-bottom: 2px solid #eaeaea;
             padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        h2 {
+            margin-top: 2rem;
         }
         p {
             font-size: 1.1rem;
+            margin-bottom: 1.2rem;
         }
         img {
             max-width: 100%;
             height: auto;
             border-radius: 8px;
-            margin: 1.5rem 0;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin: 2rem 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: block;
         }
         .report-section {
             background: #fff;
@@ -37,13 +43,18 @@
             border-radius: 8px;
             margin-bottom: 2rem;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-left: 4px solid #0366d6;
+        }
+        .report-section h3 {
+            margin-top: 0;
         }
         ul {
             list-style-type: none;
             padding: 0;
         }
         li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.05rem;
         }
         a {
             color: #0366d6;
@@ -54,7 +65,9 @@
             text-decoration: underline;
         }
         .footer {
-            margin-top: 3rem;
+            margin-top: 4rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eaeaea;
             font-size: 0.9rem;
             color: #666;
             text-align: center;
@@ -64,38 +77,67 @@
 <body>
 
     <h1>Triadic Decision Pipelines</h1>
-    <p>Architectural research on triadic coordination layers for artificial intelligence. This repository explores integrating a discrete third state (verification pending) between probabilistic neural generation and deterministic binary execution to resolve uncertainty in precision critical AI decision pipelines.</p>
+    <p>Architectural research on triadic coordination layers for artificial intelligence. This repository explores integrating a discrete third state (verification pending) between probabilistic neural generation and deterministic binary execution to resolve uncertainty in precision-critical AI decision pipelines.</p>
+
+    <h2>Executive Summary: Bridging Probabilistic Cognition and Deterministic Verification</h2>
+    <p>The rapid expansion of artificial intelligence into critical infrastructure, financial markets, and healthcare has exposed a profound structural limitation in the foundational logic underlying automated decision-making. Historically, computational systems and formal execution gates have relied upon strict bivalent logic, restricting the final evaluation of any process to strictly <em>true</em> or <em>false</em>.</p>
+
+    <p>While continuous probabilistic reasoning models and Bayesian inference engines allow AI systems to process vast gradients of certainty, the execution phase of these systems almost inevitably collapses into a binary threshold.</p>
 
     <img src="pipeline.png" alt="Probabilistic reasoning pipeline AI">
 
-    <div class="report-section">
-        <h3>1. Architecting the Coordination Layer</h3>
-        <p>This foundational report traces the philosophical and mathematical entrenchment of bivalence and diagnoses the core friction between machine learning and deterministic symbolic verification.</p>
-        <ul>
-            <li>📝 <strong>Text:</strong> <a href="https://github.com/FractonicMind/Triadic_Decision_Pipelines/blob/main/Architecting_the_Coordination_Layer.md">View Markdown</a></li>
-            <li>🌐 <strong>Web:</strong> <a href="https://fractonicmind.github.io/Triadic_Decision_Pipelines/Architecting_the_Coordination_Layer.html">View HTML</a></li>
-            <li>🎧 <strong>Audio:</strong> <a href="https://fractonicmind.github.io/Triadic_Decision_Pipelines/Architecting_the_Coordination_Layer.mp3">Listen to MP3</a></li>
-        </ul>
-    </div>
+    <p>This repository investigates the technical hypothesis that <strong>triadic logical structures</strong> can function as a crucial coordination layer. By explicitly separating epistemic ambiguity from immediate binary execution, triadic coordination layers prevent cascading errors and provide deterministic triggers for human-in-the-loop oversight.</p>
+
+    <img src="VLF.png" alt="VLF - Verum, Limit, Falsum">
+
+    <p>The conceptualization of a third logical state possesses a rich theoretical lineage, tracing from Charles Sanders Peirce's <em>Limit</em> state to Jan Łukasiewicz's formalization of future contingents, and Stephen Kleene's logic of computational undefinedness.</p>
 
     <img src="Jan_L.png" alt="Jan Łukasiewicz and Triadic Logic">
 
+    <p>The core of this repository centers on the contemporary applied evolution of these classical mathematical systems proposed by Lev Goukassian through <strong>Ternary Logic (TL)</strong> and <strong>Ternary Moral Logic (TML)</strong>. These frameworks reframe the third state as an active, mandatory architectural mechanism for AI governance, utilizing the Epistemic Hold (Sacred Zero) to actively enforce a deterministic deliberative pause within the computational system.</p>
+
+    <img src="TLCL.png" alt="Triadic Logic Coordination Layer">
+
+    <h2>Repository Artifacts and Documentation</h2>
+    <p>This repository contains four core deep research reports generated to analyze the architecture, implementation, and theoretical defense of triadic decision pipelines. The artifacts are available in Markdown, HTML Web Pages, specialized Infographics, and Audio formats.</p>
+
     <div class="report-section">
-        <h3>2. AI Reasoning Triadic Logic Integration</h3>
-        <p>This document shifts the focus to neurosymbolic engineering and hardware substrates. It explores specific verification gates and hardware accelerators capable of processing ternary states.</p>
+        <h3>1. Bridging Probabilistic Reasoning and Deterministic Verification</h3>
+        <p>Analyzes the historical lineage from Peirce, Łukasiewicz, and Kleene to Goukassian's applied frameworks, evaluating the placement of triadic gates against existing Bayesian and abstention-based uncertainty methods.</p>
         <ul>
-            <li>📝 <strong>Text:</strong> <a href="https://github.com/FractonicMind/Triadic_Decision_Pipelines/blob/main/AI_Reasoning_Triadic_Logic_Integration.md">View Markdown</a></li>
-            <li>🌐 <strong>Web:</strong> <a href="https://fractonicmind.github.io/Triadic_Decision_Pipelines/AI_Reasoning_Triadic_Logic_Integration.html">View HTML</a></li>
-            <li>🎧 <strong>Audio:</strong> <a href="https://fractonicmind.github.io/Triadic_Decision_Pipelines/AI_Reasoning_Triadic_Logic_Integration.mp3">Listen to MP3</a></li>
+            <li>📝 <strong>Text:</strong> <a href="Bridging_Probabilistic_Reasoning_and_Deterministic_Verification.md">View Markdown</a></li>
+            <li>🌐 <strong>Web:</strong> <a href="https://fractonicmind.github.io/Triadic_Decision_Pipelines/Bridging_Probabilistic_Reasoning_and_Deterministic_Verification.html">View HTML</a></li>
         </ul>
     </div>
 
     <div class="report-section">
-        <h3>3. Case for Triadic Logic in Mediating AI Reasoning and Verification</h3>
-        <p>The final report acts as the deployment argument. It moves the triadic concept into high stakes environments like medicine and autonomous vehicles where forced binary decisions on uncertain data cause catastrophic failures.</p>
+        <h3>2. Triadic Logical Structures as a Coordination Layer for Uncertainty Management</h3>
+        <p>Focuses on the deployment of triadic logic in high-stakes environments, detailing operational scenarios such as preventing flash crashes in algorithmic trading and enabling safe escalation in medical diagnostics.</p>
         <ul>
-            <li>📝 <strong>Text:</strong> <a href="https://github.com/FractonicMind/Triadic_Decision_Pipelines/blob/main/Case for Triadic Logic in Mediating AI Reasoning and Verification.md">View Markdown</a></li>
-            <li>🌐 <strong>Web:</strong> <a href="https://fractonicmind.github.io/Triadic_Decision_Pipelines/Case%20for%20Triadic%20Logic%20in%20Mediating%20AI%20Reasoning%20and%20Verification.html">View HTML</a></li>
+            <li>📝 <strong>Text:</strong> <a href="Triadic_Logical_Structures_as_a_Coordination_Layer_for_Uncertainty_Management.md">View Markdown</a></li>
+            <li>🌐 <strong>Web Page:</strong> <a href="https://fractonicmind.github.io/Triadic_Decision_Pipelines/Triadic_Logical_Structures_as_a_Coordination_Layer_for_Uncertainty_Management-W.html">View Web Document</a></li>
+            <li>📊 <strong>Infographic:</strong> <a href="https://fractonicmind.github.io/Triadic_Decision_Pipelines/Triadic_Logical_Structures_as_a_Coordination_Layer_for_Uncertainty_Management-I.html">View Infographic</a></li>
+            <li>🎧 <strong>Audio:</strong> <a href="https://fractonicmind.github.io/Triadic_Decision_Pipelines/Triadic_Logical_Structures_as_a_Coordination_Layer_for_Uncertainty_Management.mp3">Listen to MP3</a></li>
+        </ul>
+    </div>
+
+    <div class="report-section">
+        <h3>3. Triadic Logical Structures as Coordination Layers in Artificial Intelligence Architectures</h3>
+        <p>Explores the structural vulnerabilities of unstructured multi-agent networks and positions the Dual-Lane Architecture as the definitive solution for containing cascading errors.</p>
+        <ul>
+            <li>📝 <strong>Text:</strong> <a href="Triadic_Logical_Structures_as_Coordination_Layers_in_Artificial_Intelligence_Architectures.md">View Markdown</a></li>
+            <li>🌐 <strong>Web Page:</strong> <a href="https://fractonicmind.github.io/Triadic_Decision_Pipelines/Triadic_Logical_Structures_as_Coordination_Layers_in_Artificial_Intelligence_Architectures-W.html">View Web Document</a></li>
+            <li>📊 <strong>Infographic:</strong> <a href="https://fractonicmind.github.io/Triadic_Decision_Pipelines/Triadic_Logical_Structures_as_Coordination_Layers_in_Artificial_Intelligence_Architectures-I.html">View Infographic</a></li>
+            <li>🎧 <strong>Audio:</strong> <a href="https://fractonicmind.github.io/Triadic_Decision_Pipelines/Triadic_Logical_Structures_as_Coordination_Layers_in_Artificial_Intelligence_Architectures.mp3">Listen to MP3</a></li>
+        </ul>
+    </div>
+
+    <div class="report-section">
+        <h3>4. Triadic Logical Structures as Coordination Mechanisms in AI Architectures</h3>
+        <p>A highly technical evaluation of state transition mechanics between inference and execution, detailing the "Sacred Zero" hardware pause and cryptographic logging requirements.</p>
+        <ul>
+            <li>📝 <strong>Text:</strong> <a href="Triadic_Logical_Structures_as_Coordination_Mechanisms_in_AI_Architectures.md">View Markdown</a></li>
+            <li>🌐 <strong>Web:</strong> <a href="https://fractonicmind.github.io/Triadic_Decision_Pipelines/Triadic_Logical_Structures_as_Coordination_Mechanisms_in_AI_Architectures.html">View HTML</a></li>
         </ul>
     </div>
 
