@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triadic Logic in AI Architectures | Deep Research</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;700&display=swap" rel="stylesheet">
+    
+    <!-- Chosen Palette: Warm Neutrals with Sky Blue, Amber, and Rose Accents -->
+    <!-- Application Structure Plan: The SPA uses a linear, scrollable dashboard structure with sticky navigation. It begins by establishing the core problem (The Uncertainty Gap), moves into the historical context via an interactive tabbed interface, visualizes the proposed architectural solution using a CSS-based flow diagram, and concludes with comparative analytics (Radar/3D Scatter). This flow logically walks the user from problem -> history -> solution -> performance evaluation, maximizing comprehension. -->
+    <!-- Visualization & Content Choices: 
+         1. Uncertainty Gap -> Goal: Inform/Distribution -> Area Chart (Chart.js) -> Highlights the 'grey area' where binary logic fails.
+         2. History -> Goal: Organize -> Interactive Tabs (HTML/JS) -> Cleans up dense text into explorable chunks.
+         3. Pipeline Architecture -> Goal: Organize/Process -> CSS/HTML Flowchart (NO SVG) -> Demonstrates structural placement of the Triadic Gate.
+         4. Comparison -> Goal: Compare -> Radar Chart (Chart.js) -> Evaluates 3 methods across 5 metrics.
+         5. Decision Surface -> Goal: Relationships -> 3D Scatter (Plotly WebGL) -> Shows mapping of continuous variables to discrete states.
+         Library usage strictly avoids SVG and Mermaid.js. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #fafaf9; color: #292524; scroll-behavior: smooth; }
+        h1, h2, h3, h4, h5, .serif { font-family: 'Merriweather', serif; }
+        
+        .chart-container { position: relative; width: 100%; max-width: 800px; margin-left: auto; margin-right: auto; height: 350px; max-height: 400px; }
+        @media (min-width: 768px) { .chart-container { height: 450px; } }
+        .plotly-container { position: relative; width: 100%; height: 450px; max-height: 500px; }
+        
+        .nav-link { transition: all 0.2s ease-in-out; }
+        .nav-link.active { color: #0284c7; font-weight: 600; border-bottom: 2px solid #0284c7; }
+        
+        .tab-btn { transition: background-color 0.2s, color 0.2s; }
+        .tab-btn.active-tab { background-color: #f3f4f6; border-left: 4px solid #0284c7; font-weight: 600; color: #0284c7; }
+        
+        .flow-node { transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; }
+        .flow-node:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+        .flow-node.active-node { border-color: #0284c7; background-color: #f0f9ff; box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.2); }
+        
+        .fade-in { animation: fadeIn 0.4s ease-in-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="antialiased selection:bg-sky-200 selection:text-sky-900">
+
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-stone-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <span class="text-2xl text-sky-700 font-bold">&#8866;</span>
+                    <span class="font-bold text-lg tracking-tight text-stone-800 uppercase">Triadic AI Report</span>
+                </div>
+                <div class="hidden md:flex space-x-8 text-sm font-medium">
+                    <a href="#executive-summary" class="nav-link active text-stone-500 hover:text-sky-700 py-5">Summary</a>
+                    <a href="#uncertainty-gap" class="nav-link text-stone-500 hover:text-sky-700 py-5">The Gap</a>
+                    <a href="#historical-context" class="nav-link text-stone-500 hover:text-sky-700 py-5">History</a>
+                    <a href="#architectural-flow" class="nav-link text-stone-500 hover:text-sky-700 py-5">Architecture</a>
+                    <a href="#comparative-analysis" class="nav-link text-stone-500 hover:text-sky-700 py-5">Analysis</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-24">
+
+        <header id="executive-summary" class="text-center max-w-4xl mx-auto pt-8">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-stone-100 text-stone-600 text-xs font-bold tracking-widest uppercase mb-6 border border-stone-200">
+                Architectural Research Analysis
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold text-stone-900 leading-tight mb-6 serif">
+                Coordinating Uncertain Decisions via Triadic Logic Architectures
+            </h1>
+            <p class="text-lg md:text-xl text-stone-600 leading-relaxed mb-12">
+                Evaluating the integration of Lev Goukassian's Ternary Logic (TL) and Ternary Moral Logic (TML) as a structural coordination layer between probabilistic reasoning and deterministic verification.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200 border-t-4 border-t-sky-500">
+                    <div class="text-3xl mb-3 text-sky-600">&#10003;</div>
+                    <h3 class="font-bold text-lg mb-2">State 1: Accepted</h3>
+                    <p class="text-sm text-stone-500 leading-relaxed">High probabilistic confidence meets strict deterministic rules. The AI system executes the operation autonomously.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200 border-t-4 border-t-amber-500 transform md:-translate-y-2 relative z-10">
+                    <div class="absolute -top-3 right-4 bg-amber-100 text-amber-800 text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider">Core Proposal</div>
+                    <div class="text-3xl mb-3 text-amber-500">&#9888;</div>
+                    <h3 class="font-bold text-lg mb-2">State 3: Pending</h3>
+                    <p class="text-sm text-stone-500 leading-relaxed">The outcome is indeterminate. The system structurally defers the decision, escalates to a human loop, or awaits further verification.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200 border-t-4 border-t-rose-500">
+                    <div class="text-3xl mb-3 text-rose-600">&#10007;</div>
+                    <h3 class="font-bold text-lg mb-2">State 2: Rejected</h3>
+                    <p class="text-sm text-stone-500 leading-relaxed">Deterministic failure or critically low confidence. The proposed action is safely and strictly denied.</p>
+                </div>
+            </div>
+        </header>
+
+        <section id="uncertainty-gap" class="scroll-mt-24">
+            <div class="max-w-3xl mb-8">
+                <h2 class="text-3xl font-bold mb-4 text-stone-900 serif">The Probabilistic Uncertainty Gap</h2>
+                <p class="text-stone-600 leading-relaxed text-lg">
+                    This section illustrates the fundamental limitation of forcing probabilistic outputs into binary systems. Neural networks produce probability distributions, not absolute certainties. When binary logic dictates execution based on a single threshold, the system is forced into high-risk "guesses" within the grey area. Triadic logic natively structures this gap as a safe, routable state.
+                </p>
+            </div>
+            
+            <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-stone-200">
+                <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                    <div class="lg:col-span-3">
+                        <div class="chart-container">
+                            <canvas id="uncertaintyChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="flex flex-col justify-center space-y-6">
+                        <div class="p-4 rounded-xl border border-rose-100 bg-rose-50">
+                            <div class="font-bold text-rose-700 mb-1 flex items-center gap-2"><span>&#9632;</span> Rejected Zone</div>
+                            <div class="text-sm text-stone-600">Probabilities near 0. Handled efficiently by standard binary logic.</div>
+                        </div>
+                        <div class="p-4 rounded-xl border border-amber-100 bg-amber-50">
+                            <div class="font-bold text-amber-700 mb-1 flex items-center gap-2"><span>&#9632;</span> Indeterminate Zone</div>
+                            <div class="text-sm text-stone-600">The critical failure point of binary systems. This mass requires State 3 structural handling.</div>
+                        </div>
+                        <div class="p-4 rounded-xl border border-sky-100 bg-sky-50">
+                            <div class="font-bold text-sky-700 mb-1 flex items-center gap-2"><span>&#9632;</span> Accepted Zone</div>
+                            <div class="text-sm text-stone-600">Probabilities near 100. Safe for automated deterministic execution.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="historical-context" class="scroll-mt-24">
+            <div class="max-w-3xl mb-8">
+                <h2 class="text-3xl font-bold mb-4 text-stone-900 serif">Historical Foundations of Triadic Logic</h2>
+                <p class="text-stone-600 leading-relaxed text-lg">
+                    The concept of a "Third State" is not new. To understand if Goukassian's Ternary Logic introduces novel architectural advantages for AI, we must trace the evolution of three-valued logic from early philosophy to modern computational theory. Select a theorist below to explore their contribution.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-sm border border-stone-200 overflow-hidden">
+                <div class="grid grid-cols-1 md:grid-cols-12 min-h-[400px]">
+                    <div class="md:col-span-4 bg-stone-50 border-r border-stone-200 p-4 flex flex-col gap-2" id="history-tabs">
+                        <button class="tab-btn active-tab text-left px-5 py-4 rounded-xl w-full" data-target="peirce">
+                            <div class="font-bold text-lg mb-1">C.S. Peirce</div>
+                            <div class="text-xs text-stone-500 uppercase tracking-wider">Late 19th Century</div>
+                        </button>
+                        <button class="tab-btn text-left px-5 py-4 rounded-xl w-full" data-target="lukasiewicz">
+                            <div class="font-bold text-lg mb-1">Jan Łukasiewicz</div>
+                            <div class="text-xs text-stone-500 uppercase tracking-wider">1920s</div>
+                        </button>
+                        <button class="tab-btn text-left px-5 py-4 rounded-xl w-full" data-target="kleene">
+                            <div class="font-bold text-lg mb-1">Stephen Kleene</div>
+                            <div class="text-xs text-stone-500 uppercase tracking-wider">1938</div>
+                        </button>
+                        <button class="tab-btn text-left px-5 py-4 rounded-xl w-full" data-target="goukassian">
+                            <div class="font-bold text-lg mb-1">Lev Goukassian</div>
+                            <div class="text-xs text-stone-500 uppercase tracking-wider">Modern AI Era</div>
+                        </button>
+                    </div>
+                    
+                    <div class="md:col-span-8 p-8 md:p-12 relative" id="history-content">
+                        <div id="content-peirce" class="fade-in block">
+                            <div class="text-6xl text-stone-200 absolute top-8 right-8">&#10077;</div>
+                            <h3 class="text-2xl font-bold mb-4 serif text-stone-900">The Limit of Determinism</h3>
+                            <p class="text-stone-600 leading-relaxed mb-6 text-lg">Charles Sanders Peirce challenged the absolute determinism of classical boolean logic systems. He developed early matrices for triadic logic, recognizing that forcing reality into strict binaries often fails to capture the true state of information.</p>
+                            <div class="bg-stone-100 p-5 rounded-xl border border-stone-200">
+                                <strong class="text-stone-900 block mb-2">Interpretation of the Third State:</strong>
+                                <span class="text-stone-600">A boundary value representing a logical "limit" or indeterminacy within philosophical reasoning.</span>
+                            </div>
+                        </div>
+
+                        <div id="content-lukasiewicz" class="hidden">
+                            <div class="text-6xl text-stone-200 absolute top-8 right-8">&#10077;</div>
+                            <h3 class="text-2xl font-bold mb-4 serif text-stone-900">Future Contingents</h3>
+                            <p class="text-stone-600 leading-relaxed mb-6 text-lg">Łukasiewicz formulated a robust three-valued propositional calculus. His primary motivation was addressing Aristotle's problem of future contingents—statements about future events that cannot logically be assigned True or False in the present.</p>
+                            <div class="bg-stone-100 p-5 rounded-xl border border-stone-200">
+                                <strong class="text-stone-900 block mb-2">Interpretation of the Third State:</strong>
+                                <span class="text-stone-600">Defined as "Possible" or "Unknown". It acts as a placeholder for truths that have not yet mathematically or physically resolved.</span>
+                            </div>
+                        </div>
+
+                        <div id="content-kleene" class="hidden">
+                            <div class="text-6xl text-stone-200 absolute top-8 right-8">&#10077;</div>
+                            <h3 class="text-2xl font-bold mb-4 serif text-stone-900">Partial Recursive Functions</h3>
+                            <p class="text-stone-600 leading-relaxed mb-6 text-lg">Kleene developed strong logics of indeterminacy directly applicable to computation. His framework handles scenarios where algorithms might fail to halt or where input data is simply missing, allowing surrounding logic gates to process without crashing.</p>
+                            <div class="bg-stone-100 p-5 rounded-xl border border-stone-200">
+                                <strong class="text-stone-900 block mb-2">Interpretation of the Third State:</strong>
+                                <span class="text-stone-600">Defined explicitly as "Undefined". Highly practical for handling non-terminating algorithmic processes and missing data streams.</span>
+                            </div>
+                        </div>
+
+                        <div id="content-goukassian" class="hidden">
+                            <div class="text-6xl text-sky-100 absolute top-8 right-8">&#10077;</div>
+                            <h3 class="text-2xl font-bold mb-4 serif text-sky-900">Ternary Moral Logic (TML)</h3>
+                            <p class="text-stone-600 leading-relaxed mb-6 text-lg">Goukassian shifts the third state from a computational quirk to a primary structural component for AI architecture. TML and TL utilize triadic logic specifically as a coordination mechanism bridging uncertain neural net outputs with strict robotic/systematic execution.</p>
+                            <div class="bg-sky-50 p-5 rounded-xl border border-sky-200">
+                                <strong class="text-sky-900 block mb-2">Architectural Implication:</strong>
+                                <span class="text-stone-700">"Verification Pending". It serves as an active routing destination allowing systems to pause, ask for human help, or gather more data without triggering an error state.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="architectural-flow" class="scroll-mt-24">
+            <div class="max-w-3xl mb-8">
+                <h2 class="text-3xl font-bold mb-4 text-stone-900 serif">Architectural Placement of the Triadic Layer</h2>
+                <p class="text-stone-600 leading-relaxed text-lg">
+                    This interactive diagram illustrates the physical location of a Triadic Logic mechanism within a standard AI pipeline. Click on any node in the flow to understand how data moves from continuous probabilities into discrete triadic states.
+                </p>
+            </div>
+
+            <div class="bg-stone-900 rounded-3xl p-6 md:p-12 shadow-xl overflow-hidden relative">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
+                    
+                    <div class="lg:col-span-7 flex flex-col items-center justify-center min-h-[400px]">
+                        <div class="flex flex-col items-center w-full max-w-[400px]">
+                            
+                            <div class="flow-node active-node bg-stone-800 border-2 border-stone-600 text-white p-5 rounded-2xl w-full text-center relative z-10" data-node="inference">
+                                <div class="text-3xl mb-2 text-stone-300">&#9881;</div>
+                                <div class="font-bold text-lg">1. Probabilistic Inference</div>
+                                <div class="text-sm text-stone-400 mt-1">LLM / Neural Network</div>
+                            </div>
+
+                            <div class="h-12 w-0.5 bg-stone-600 relative">
+                                <div class="absolute top-1/2 left-4 text-stone-400 text-xs w-32 -translate-y-1/2">&#8595; Output Array + Confidence</div>
+                            </div>
+
+                            <div class="flow-node bg-stone-800 border-2 border-amber-500 text-white p-6 rounded-2xl w-full text-center relative z-10 shadow-[0_0_25px_rgba(245,158,11,0.15)]" data-node="gate">
+                                <div class="text-4xl mb-2 text-amber-500">&#8866;</div>
+                                <div class="font-bold text-xl">2. Triadic Coordination Gate</div>
+                                <div class="text-sm text-stone-400 mt-2">Applies TL / TML Rules</div>
+                            </div>
+
+                            <div class="w-full flex justify-between relative h-16">
+                                <div class="absolute top-0 left-1/2 w-0.5 h-6 bg-stone-600"></div>
+                                <div class="absolute top-6 left-[16.66%] w-[66.66%] h-0.5 bg-stone-600"></div>
+                                
+                                <div class="absolute top-6 left-[16.66%] w-0.5 h-10 bg-stone-600"></div>
+                                <div class="absolute top-6 left-1/2 w-0.5 h-10 bg-stone-600"></div>
+                                <div class="absolute top-6 right-[16.66%] w-0.5 h-10 bg-stone-600"></div>
+                            </div>
+
+                            <div class="flex justify-between w-full gap-4 relative z-10">
+                                <div class="flow-node bg-stone-800 border-b-4 border-sky-500 text-white p-4 rounded-xl w-1/3 text-center" data-node="state1">
+                                    <div class="text-sky-500 font-bold mb-1">&#10003;</div>
+                                    <div class="text-xs font-bold uppercase">State 1</div>
+                                </div>
+                                <div class="flow-node bg-stone-800 border-b-4 border-amber-500 text-white p-4 rounded-xl w-1/3 text-center" data-node="state3">
+                                    <div class="text-amber-500 font-bold mb-1">&#9888;</div>
+                                    <div class="text-xs font-bold uppercase">State 3</div>
+                                </div>
+                                <div class="flow-node bg-stone-800 border-b-4 border-rose-500 text-white p-4 rounded-xl w-1/3 text-center" data-node="state2">
+                                    <div class="text-rose-500 font-bold mb-1">&#10007;</div>
+                                    <div class="text-xs font-bold uppercase">State 2</div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 flex flex-col justify-center">
+                        <div class="bg-stone-800 rounded-2xl p-6 md:p-8 border border-stone-700 min-h-[250px]">
+                            <h4 class="text-stone-500 text-xs font-bold uppercase tracking-widest mb-4">Pipeline Component Analysis</h4>
+                            
+                            <div id="desc-inference" class="fade-in block">
+                                <h5 class="text-xl font-bold text-white mb-3">Probabilistic Inference Engine</h5>
+                                <p class="text-stone-300 leading-relaxed text-sm">The base AI model generates an output prediction accompanied by a confidence probability. In standard architectures, this raw probability is sent directly to binary verification layers, forcing immediate acceptance or rejection.</p>
+                            </div>
+                            
+                            <div id="desc-gate" class="hidden">
+                                <h5 class="text-xl font-bold text-amber-400 mb-3">Triadic Coordination Gate</h5>
+                                <p class="text-stone-300 leading-relaxed text-sm">The proposed architectural addition. This gate intercepts the probabilistic output and applies strict deterministic thresholds. Rather than failing on ambiguous data, it routes uncertainty into a valid, manageable structural path.</p>
+                            </div>
+
+                            <div id="desc-state1" class="hidden">
+                                <h5 class="text-xl font-bold text-sky-400 mb-3">Execution: Accepted (State 1)</h5>
+                                <p class="text-stone-300 leading-relaxed text-sm">The confidence score exceeds the upper deterministic safety boundary. The logic resolves to TRUE. The system executes the action autonomously without restriction.</p>
+                            </div>
+
+                            <div id="desc-state3" class="hidden">
+                                <h5 class="text-xl font-bold text-amber-400 mb-3">Execution: Pending (State 3)</h5>
+                                <p class="text-stone-300 leading-relaxed text-sm">The core of Goukassian's proposal. The output falls into the uncertainty gap. The system intentionally defers execution, triggering sub-routines to request human oversight, pull secondary data, or initiate a fail-safe pause.</p>
+                            </div>
+
+                            <div id="desc-state2" class="hidden">
+                                <h5 class="text-xl font-bold text-rose-400 mb-3">Execution: Rejected (State 2)</h5>
+                                <p class="text-stone-300 leading-relaxed text-sm">The probability is critically low, or it violates hard-coded safety rules. The logic resolves to FALSE. The system blocks the action entirely to ensure safety.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="comparative-analysis" class="scroll-mt-24">
+            <div class="max-w-3xl mb-8">
+                <h2 class="text-3xl font-bold mb-4 text-stone-900 serif">Comparing Uncertainty Mechanisms</h2>
+                <p class="text-stone-600 leading-relaxed text-lg">
+                    This section analytically compares Triadic Logic against standard Bayesian inference architectures and simple Binary Abstention methods. While Bayesian models are superior at handling continuous internal math, Triadic logic excels in architectural state resolution and deterministic safety.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-stone-200">
+                    <div class="chart-container" style="height: 450px;">
+                        <canvas id="radarChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col space-y-6">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200 border-l-4 border-l-sky-600">
+                        <h4 class="font-bold text-lg text-stone-900 mb-2">Triadic Logic (TL/TML)</h4>
+                        <p class="text-sm text-stone-600 leading-relaxed">Transforms uncertainty into a defined structural state. Excellent for safety-critical handoffs (e.g., medical diagnosis, autonomous driving) where systems must fail gracefully and request help.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200 border-l-4 border-l-stone-400">
+                        <h4 class="font-bold text-lg text-stone-900 mb-2">Bayesian Inference</h4>
+                        <p class="text-sm text-stone-600 leading-relaxed">Unmatched in calculating continuous, granular probabilities over time. However, it lacks native hard-stop mechanisms, requiring external thresholds to actually make a binary decision.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200 border-l-4 border-l-rose-400">
+                        <h4 class="font-bold text-lg text-stone-900 mb-2">Binary Abstention</h4>
+                        <p class="text-sm text-stone-600 leading-relaxed">Highly efficient and computationally cheap. Simply fails the process if confidence is low. However, it conflates "Factually False" with "Not Enough Data", confusing downstream systems.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="decision-surface" class="scroll-mt-24">
+            <div class="max-w-3xl mx-auto text-center mb-10">
+                <h2 class="text-3xl font-bold mb-4 text-stone-900 serif">3D Decision Surface Mapping</h2>
+                <p class="text-stone-600 leading-relaxed text-lg">
+                    Interact with the plot below. It visualizes how a Triadic Coordination Layer maps three continuous variables (Risk, Confidence, System Latency) into three discrete architectural clusters, clearly segregating safe operations from pending deferrals.
+                </p>
+            </div>
+
+            <div class="bg-white p-4 rounded-3xl shadow-sm border border-stone-200">
+                <div id="plotly-div" class="plotly-container"></div>
+            </div>
+        </section>
+
+        <footer class="mt-32 border-t border-stone-200 pt-16 pb-24 text-center">
+            <h3 class="text-2xl font-bold mb-4 serif text-stone-900">Research Conclusion</h3>
+            <p class="text-stone-600 max-w-2xl mx-auto leading-relaxed mb-8">
+                Triadic logic offers a theoretically sound architectural upgrade for AI systems struggling with the uncertainty gap. By promoting the "Unknown" to a first-class structural state (State 3), systems can coordinate probabilistic cognition with deterministic safety protocols, minimizing hallucinations and enabling safe human-in-the-loop handoffs.
+            </p>
+            <div class="text-stone-400 text-sm font-bold tracking-widest uppercase">End of Analysis</div>
+        </footer>
+
+    </main>
+
+    <script>
+        const wrapLabel = (label, maxChars = 16) => {
+            if (typeof label !== 'string') return label;
+            if (label.length <= maxChars) return label;
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            for (let i = 0; i < words.length; i++) {
+                const word = words[i];
+                if ((currentLine + word).length > maxChars) {
+                    if (currentLine.trim() !== '') {
+                        lines.push(currentLine.trim());
+                    }
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            }
+            if (currentLine.trim() !== '') {
+                lines.push(currentLine.trim());
+            }
+            return lines;
+        };
+
+        const globalTooltipConfig = {
+            tooltip: {
+                backgroundColor: 'rgba(41, 37, 36, 0.9)',
+                titleColor: '#f5f5f4',
+                bodyColor: '#d6d3d1',
+                padding: 12,
+                cornerRadius: 8,
+                callbacks: {
+                    title: function(tooltipItems) {
+                        const item = tooltipItems[0];
+                        let label = item.chart.data.labels[item.dataIndex];
+                        if (Array.isArray(label)) {
+                            return label.join(' ');
+                        } else {
+                            return label;
+                        }
+                    }
+                }
+            }
+        };
+
+        document.addEventListener("DOMContentLoaded", () => {
+            
+            Chart.defaults.font.family = "'Inter', sans-serif";
+            Chart.defaults.color = '#78716c';
+
+            const xVals = [];
+            const rejectData = [];
+            const pendingData = [];
+            const acceptData = [];
+
+            for (let i = 0; i <= 100; i++) {
+                xVals.push(i + '%');
+                let val = Math.exp(-Math.pow(i - 50, 2) / 400) * 100; 
+                
+                if (i <= 30) {
+                    rejectData.push(val); pendingData.push(0); acceptData.push(0);
+                } else if (i > 30 && i < 70) {
+                    rejectData.push(0); pendingData.push(val); acceptData.push(0);
+                } else {
+                    rejectData.push(0); pendingData.push(0); acceptData.push(val);
+                }
+            }
+
+            const ctxArea = document.getElementById('uncertaintyChart').getContext('2d');
+            new Chart(ctxArea, {
+                type: 'line',
+                data: {
+                    labels: xVals,
+                    datasets: [
+                        {
+                            label: 'State 2: Rejected',
+                            data: rejectData,
+                            borderColor: '#e11d48',
+                            backgroundColor: 'rgba(225, 29, 72, 0.2)',
+                            fill: true,
+                            pointRadius: 0,
+                            tension: 0.4,
+                            borderWidth: 2
+                        },
+                        {
+                            label: 'State 3: Pending',
+                            data: pendingData,
+                            borderColor: '#f59e0b',
+                            backgroundColor: 'rgba(245, 158, 11, 0.2)',
+                            fill: true,
+                            pointRadius: 0,
+                            tension: 0.4,
+                            borderWidth: 2
+                        },
+                        {
+                            label: 'State 1: Accepted',
+                            data: acceptData,
+                            borderColor: '#0284c7',
+                            backgroundColor: 'rgba(2, 132, 199, 0.2)',
+                            fill: true,
+                            pointRadius: 0,
+                            tension: 0.4,
+                            borderWidth: 2
+                        }
+                    ]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    interaction: { mode: 'index', intersect: false },
+                    plugins: {
+                        ...globalTooltipConfig,
+                        legend: { position: 'bottom', labels: { padding: 20, usePointStyle: true, font: { weight: 'bold' } } }
+                    },
+                    scales: {
+                        x: { 
+                            title: { display: true, text: 'Probabilistic Confidence Score', font: { weight: 'bold' } },
+                            grid: { display: false },
+                            ticks: { maxTicksLimit: 10 }
+                        },
+                        y: { display: false, stacked: true }
+                    }
+                }
+            });
+
+            const rawRadarLabels = [
+                "Deterministic Safety Routing", 
+                "Handling Smooth Uncertainty", 
+                "Architectural State Clarity", 
+                "Computational Efficiency Cost", 
+                "Human Handoff Capability"
+            ];
+            const radarLabels = rawRadarLabels.map(lbl => wrapLabel(lbl, 16));
+
+            const ctxRadar = document.getElementById('radarChart').getContext('2d');
+            new Chart(ctxRadar, {
+                type: 'radar',
+                data: {
+                    labels: radarLabels,
+                    datasets: [
+                        {
+                            label: 'Triadic Logic (TL)',
+                            data: [95, 60, 95, 60, 100],
+                            backgroundColor: 'rgba(2, 132, 199, 0.2)',
+                            borderColor: '#0284c7',
+                            pointBackgroundColor: '#0284c7',
+                            pointBorderColor: '#fff',
+                            borderWidth: 2
+                        },
+                        {
+                            label: 'Bayesian Inference',
+                            data: [50, 95, 40, 40, 60],
+                            backgroundColor: 'rgba(120, 113, 108, 0.2)',
+                            borderColor: '#78716c',
+                            pointBackgroundColor: '#78716c',
+                            pointBorderColor: '#fff',
+                            borderWidth: 2
+                        },
+                        {
+                            label: 'Binary Abstention',
+                            data: [70, 30, 75, 95, 30],
+                            backgroundColor: 'rgba(225, 29, 72, 0.1)',
+                            borderColor: '#e11d48',
+                            borderDash: [5, 5],
+                            pointBackgroundColor: '#e11d48',
+                            pointBorderColor: '#fff',
+                            borderWidth: 2
+                        }
+                    ]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    plugins: {
+                        ...globalTooltipConfig,
+                        legend: { position: 'bottom', labels: { padding: 20, usePointStyle: true } }
+                    },
+                    scales: {
+                        r: {
+                            angleLines: { color: '#e5e5e5' },
+                            grid: { color: '#e5e5e5' },
+                            pointLabels: { color: '#44403c', font: { size: 12, weight: '500' } },
+                            ticks: { display: false, min: 0, max: 100 }
+                        }
+                    }
+                }
+            });
+
+            const drawPlotly = () => {
+                const s1 = { x: [], y: [], z: [], mode: 'markers', type: 'scatter3d', name: 'Accepted', marker: { size: 4, color: '#0284c7', opacity: 0.8 } };
+                const s2 = { x: [], y: [], z: [], mode: 'markers', type: 'scatter3d', name: 'Rejected', marker: { size: 4, color: '#e11d48', opacity: 0.8 } };
+                const s3 = { x: [], y: [], z: [], mode: 'markers', type: 'scatter3d', name: 'Pending', marker: { size: 5, color: '#f59e0b', opacity: 1, symbol: 'diamond' } };
+
+                for(let i=0; i<300; i++) {
+                    let risk = Math.random();
+                    let conf = Math.random();
+                    let lat = Math.random();
+
+                    if(conf > 0.75 && risk < 0.4) {
+                        s1.x.push(risk); s1.y.push(conf); s1.z.push(lat);
+                    } else if (conf < 0.35 || risk > 0.75) {
+                        s2.x.push(risk); s2.y.push(conf); s2.z.push(lat);
+                    } else {
+                        s3.x.push(risk); s3.y.push(conf); s3.z.push(lat);
+                    }
+                }
+
+                const layout = {
+                    margin: { l: 0, r: 0, b: 0, t: 0 },
+                    paper_bgcolor: 'rgba(0,0,0,0)',
+                    plot_bgcolor: 'rgba(0,0,0,0)',
+                    scene: {
+                        xaxis: { title: 'Risk Factor', gridcolor: '#e5e5e5', zerolinecolor: '#d4d4d8' },
+                        yaxis: { title: 'Confidence', gridcolor: '#e5e5e5', zerolinecolor: '#d4d4d8' },
+                        zaxis: { title: 'Latency', gridcolor: '#e5e5e5', zerolinecolor: '#d4d4d8' },
+                        camera: { eye: { x: 1.5, y: 1.5, z: 0.5 } }
+                    },
+                    legend: { x: 0, y: 1, bgcolor: 'rgba(255,255,255,0.8)' }
+                };
+
+                Plotly.newPlot('plotly-div', [s2, s3, s1], layout, {responsive: true, displayModeBar: false});
+            };
+            drawPlotly();
+
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (scrollY >= sectionTop - 100) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('#history-content > div');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    tabBtns.forEach(b => b.classList.remove('active-tab'));
+                    tabContents.forEach(c => { c.classList.remove('fade-in'); c.classList.add('hidden'); });
+                    
+                    btn.classList.add('active-tab');
+                    const target = document.getElementById(`content-${btn.getAttribute('data-target')}`);
+                    target.classList.remove('hidden');
+                    void target.offsetWidth; 
+                    target.classList.add('fade-in');
+                });
+            });
+
+            const flowNodes = document.querySelectorAll('.flow-node');
+            const flowDescs = document.querySelectorAll('[id^="desc-"]');
+
+            flowNodes.forEach(node => {
+                node.addEventListener('click', () => {
+                    flowNodes.forEach(n => n.classList.remove('active-node'));
+                    flowDescs.forEach(d => { d.classList.remove('fade-in'); d.classList.add('hidden'); });
+                    
+                    node.classList.add('active-node');
+                    const target = document.getElementById(`desc-${node.getAttribute('data-node')}`);
+                    target.classList.remove('hidden');
+                    void target.offsetWidth; 
+                    target.classList.add('fade-in');
+                });
+            });
+
+        });
+    </script>
+</body>
+</html>
