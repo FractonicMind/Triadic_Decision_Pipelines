@@ -1,5 +1,8 @@
 # **Triadic Logical Structures as a Coordination Layer for Uncertainty Management in Precision-Critical Artificial Intelligence Architectures**
 
+* **Web Page:** [View Web Document](https://fractonicmind.github.io/Triadic_Decision_Pipelines/Triadic_Logical_Structures_as_a_Coordination_Layer_for_Uncertainty_Management-W.html)
+* **Infographic:** [View Infographic](https://fractonicmind.github.io/Triadic_Decision_Pipelines/Triadic_Logical_Structures_as_a_Coordination_Layer_for_Uncertainty_Management-I.html)
+
 The architectural evolution of artificial intelligence is currently navigating a fundamental crisis of confidence, largely driven by the inherent friction between the black-box nature of probabilistic reasoning systems and the rigid requirements of deterministic verification. While contemporary large language models and neural networks have achieved remarkable feats in pattern recognition and linguistic synthesis, they remain structurally ill-equipped for precision-critical environments where the binary mandate to either "act" or "refuse" often leads to catastrophic failure modes such as hallucinations, overconfident errors, or systemic gridlock.1 This research report investigates the technical hypothesis that triadic logical structures, specifically the Ternary Moral Logic (TML) and Ternary Logic (TL) frameworks proposed by Lev Goukassian, can function as a crucial coordination layer. By introducing a formalized third state—variously termed the Sacred Zero, the Epistemic Hold, or the Sacred Pause—these architectures allow for a principled management of uncertain or deferred decisions, effectively bridging the gap between stochastic cognition and formal verification.4
 
 ## **Historical Foundations of Triadic Logical Systems**
