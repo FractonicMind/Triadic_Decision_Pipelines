@@ -58,6 +58,9 @@
 
 ## 
 
+* **Web Page:** [View Web Document](https://fractonicmind.github.io/Triadic_Decision_Pipelines/Triadic_Logical_Structures_as_Coordination_Layers_in_Artificial_Intelligence_Architectures-W.html)
+* **Infographic:** [View Infographic](https://fractonicmind.github.io/Triadic_Decision_Pipelines/Triadic_Logical_Structures_as_Coordination_Layers_in_Artificial_Intelligence_Architectures-I.html)
+
 ## **Executive Summary** {#executive-summary}
 
 The rapid expansion of artificial intelligence into critical infrastructure, financial markets, and healthcare has exposed a profound structural limitation in the foundational logic underlying automated decision-making. Historically, computational systems have relied upon bivalent logic, restricting the final evaluation of any process to strictly true or false, permitted or denied. While continuous probabilistic reasoning models, deep neural networks, and Bayesian inference engines allow systems to process gradients of certainty, the execution phase of these systems almost inevitably collapses into a binary threshold. This forced collapse presents a severe architectural vulnerability. It routinely forces high-ambiguity transactions into either permissive states to maintain operational liquidity and throughput, or restrictive states that completely stall system utility.
