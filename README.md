@@ -58,26 +58,26 @@ This repository contains five core deep research reports generated to analyze th
 
 ### 1. Bridging Probabilistic Reasoning and Deterministic Verification
 Analyzes the historical lineage from Peirce, Łukasiewicz, and Kleene to Goukassian's applied frameworks, evaluating the placement of triadic gates against existing Bayesian and abstention-based uncertainty methods.
-* **Text:** [View Markdown](Bridging_Probabilistic_Reasoning_and_Deterministic_Verification.md)
+* **Text:** [View Markdown](https://github.com/FractonicMind/Triadic_Decision_Pipelines/blob/main/Bridging_Probabilistic_Reasoning_and_Deterministic_Verification.md)
 * **Web:** [View HTML](https://fractonicmind.github.io/Triadic_Decision_Pipelines/Bridging_Probabilistic_Reasoning_and_Deterministic_Verification.html)
 
 ### 2. Triadic Logical Structures as a Coordination Layer for Uncertainty Management
 Focuses on the deployment of triadic logic in high-stakes environments, detailing operational scenarios such as preventing flash crashes in algorithmic trading and enabling safe escalation in medical diagnostics.
-* **Text:** [View Markdown](Triadic_Logical_Structures_as_a_Coordination_Layer_for_Uncertainty_Management.md)
+* **Text:** [View Markdown](https://github.com/FractonicMind/Triadic_Decision_Pipelines/blob/main/Triadic_Logical_Structures_as_a_Coordination_Layer_for_Uncertainty_Management.md)
 * **Web Page:** [View Web Document](https://fractonicmind.github.io/Triadic_Decision_Pipelines/Triadic_Logical_Structures_as_a_Coordination_Layer_for_Uncertainty_Management-W.html)
 * **Infographic:** [View Infographic](https://fractonicmind.github.io/Triadic_Decision_Pipelines/Triadic_Logical_Structures_as_a_Coordination_Layer_for_Uncertainty_Management-I.html)
 * **Audio:** [Listen to MP3](https://fractonicmind.github.io/Triadic_Decision_Pipelines/Triadic_Logical_Structures_as_a_Coordination_Layer_for_Uncertainty_Management.mp3)
 
 ### 3. Triadic Logical Structures as Coordination Layers in Artificial Intelligence Architectures
 Explores the structural vulnerabilities of unstructured multi-agent networks and positions the Dual-Lane Architecture as the definitive solution for containing cascading errors. 
-* **Text:** [View Markdown](Triadic_Logical_Structures_as_Coordination_Layers_in_Artificial_Intelligence_Architectures.md)
+* **Text:** [View Markdown](https://github.com/FractonicMind/Triadic_Decision_Pipelines/blob/main/Triadic_Logical_Structures_as_Coordination_Layers_in_Artificial_Intelligence_Architectures.md)
 * **Web Page:** [View Web Document](https://fractonicmind.github.io/Triadic_Decision_Pipelines/Triadic_Logical_Structures_as_Coordination_Layers_in_Artificial_Intelligence_Architectures-W.html)
 * **Infographic:** [View Infographic](https://fractonicmind.github.io/Triadic_Decision_Pipelines/Triadic_Logical_Structures_as_Coordination_Layers_in_Artificial_Intelligence_Architectures-I.html)
 * **Audio:** [Listen to MP3](https://fractonicmind.github.io/Triadic_Decision_Pipelines/Triadic_Logical_Structures_as_Coordination_Layers_in_Artificial_Intelligence_Architectures.mp3)
 
 ### 4. Triadic Logical Structures as Coordination Mechanisms in AI Architectures
 A highly technical evaluation of state transition mechanics between inference and execution, detailing the "Sacred Zero" hardware pause and cryptographic logging requirements.
-* **Text:** [View Markdown](Triadic_Logical_Structures_as_Coordination_Mechanisms_in_AI_Architectures.md)
+* **Text:** [View Markdown](https://github.com/FractonicMind/Triadic_Decision_Pipelines/blob/main/Triadic_Logical_Structures_as_Coordination_Mechanisms_in_AI_Architectures.md)
 * **Web:** [View HTML](https://fractonicmind.github.io/Triadic_Decision_Pipelines/Triadic_Logical_Structures_as_Coordination_Mechanisms_in_AI_Architectures.html)
 
 ---
